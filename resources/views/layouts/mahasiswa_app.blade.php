@@ -1,0 +1,38 @@
+@extends('layouts.app')
+
+@section('content')
+<div class="flex h-screen bg-gray-200">
+    <div class="w-64 bg-gray-800 text-white p-4 flex flex-col">
+        <h2 class="text-2xl font-bold mb-4">SIELearn (Mahasiswa)</h2>
+
+        <div class="mb-4">
+            <label for="kelas_switcher" class="block text-sm font-medium text-gray-400 mb-1">Kelas Aktif Saat Ini:</label>
+            <select id="kelas_switcher" name="kelas_switcher" class="w-full px-3 py-2 bg-gray-700 text-white border border-gray-600 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500">
+                <option value="1" selected>Pemrograman Web Lanjut (A)</option>
+                <option value="2">Basis Data (B)</option>
+                <option value="3">Struktur Data (A)</option>
+            </select>
+        </div>
+        <nav class="flex-1 space-y-1">
+            <a href="{{ route('mahasiswa.dashboard') }}" class="block py-2 px-4 rounded hover:bg-gray-700">Dashboard</a>
+            <a href="{{ route('mahasiswa.materi') }}" class="block py-2 px-4 rounded hover:bg-gray-700">Materi Perkuliahan</a>
+            <a href="{{ route('mahasiswa.tugas') }}" class="block py-2 px-4 rounded hover:bg-gray-700">Tugas & Evaluasi</a>
+            <a href="{{ route('mahasiswa.absensi') }}" class="block py-2 px-4 rounded hover:bg-gray-700">Absensi Online</a>
+            <a href="{{ route('mahasiswa.forum') }}" class="block py-2 px-4 rounded hover:bg-gray-700">Forum Diskusi</a>
+        </nav>
+        <div class="mt-4">
+            <a href="/" class="block text-center w-full py-2 px-4 rounded bg-red-600 hover:bg-red-700">Logout</a>
+        </div>
+    </div>
+
+    <div class="flex-1 flex flex-col overflow-hidden">
+        <header class="bg-white shadow p-4 flex justify-between items-center">
+            <h1 class="text-xl font-semibold">Selamat Datang, Mahasiswa!</h1>
+            <span class="text-sm font-medium text-gray-600">Anda sedang di kelas: <strong class="text-blue-600">Pemrograman Web Lanjut (A)</strong></span>
+        </header>
+        <main class="flex-1 overflow-x-hidden overflow-y-auto bg-gray-100 p-6">
+            @yield('main-content')
+        </main>
+    </div>
+</div>
+@endsection
