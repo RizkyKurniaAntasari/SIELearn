@@ -17,16 +17,35 @@ Route::view('/login', 'auth.login')->name('login');
 Route::view('/register', 'auth.register')->name('register');
 
 
-// --- GRUP ROUTE MAHASISWA ---
-// [cite: 58]
 Route::prefix('mahasiswa')->name('mahasiswa.')->group(function () {
     Route::view('/dashboard', 'mahasiswa.dashboard')->name('dashboard');
-    Route::view('/materi', 'mahasiswa.materi')->name('materi'); // [cite: 64]
-    Route::view('/tugas', 'mahasiswa.tugas')->name('tugas'); // 
-    Route::view('/absensi', 'mahasiswa.absensi')->name('absensi'); // [cite: 71]
-    Route::view('/forum', 'mahasiswa.forum')->name('forum'); // [cite: 73]
+    
+    // --- RUTE BARU UNTUK MELIHAT/MENGAJUKAN KELAS ---
+    Route::view('/cari-kelas', 'mahasiswa.cari_kelas')->name('cari_kelas');
+    // --------------------------------------------------
+
+    Route::view('/materi', 'mahasiswa.materi')->name('materi'); 
+    Route::view('/tugas', 'mahasiswa.tugas')->name('tugas'); 
+    Route::view('/absensi', 'mahasiswa.absensi')->name('absensi'); 
+    Route::view('/forum', 'mahasiswa.forum')->name('forum'); 
+
+    Route::view('/profile', 'mahasiswa.profile')->name('profile'); // untuk profile
 });
 
+
+// --- GRUP ROUTE ADMIN ---
+//
+Route::prefix('admin')->name('admin.')->group(function () {
+    Route::view('/dashboard', 'admin.dashboard')->name('dashboard');
+    Route::view('/manage-users', 'admin.manage_users')->name('users'); 
+    
+    // --- Mengganti nama rute agar lebih jelas ---
+    Route::view('/konfirmasi-pendaftaran', 'admin.konfirmasi_pendaftaran')->name('konfirmasi');
+    // ---------------------------------------------
+    
+    Route::view('/manage-akademik', 'admin.manage_akademik')->name('akademik'); 
+    Route::view('/laporan', 'admin.laporan')->name('laporan'); 
+});
 
 // --- GRUP ROUTE DOSEN ---
 // [cite: 58]
@@ -37,14 +56,4 @@ Route::prefix('dosen')->name('dosen.')->group(function () {
     Route::view('/absensi', 'dosen.absensi')->name('absensi'); // [cite: 70]
     Route::view('/laporan', 'dosen.laporan')->name('laporan'); // [cite: 77]
     Route::view('/forum', 'dosen.forum')->name('forum'); // [cite: 73]
-});
-
-
-// --- GRUP ROUTE ADMIN ---
-// [cite: 58]
-Route::prefix('admin')->name('admin.')->group(function () {
-    Route::view('/dashboard', 'admin.dashboard')->name('dashboard');
-    Route::view('/manage-users', 'admin.manage_users')->name('users'); // 
-    Route::view('/manage-akademik', 'admin.manage_akademik')->name('akademik'); // 
-    Route::view('/laporan', 'admin.laporan')->name('laporan'); // [cite: 77]
 });
