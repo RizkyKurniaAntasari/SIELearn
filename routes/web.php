@@ -1,7 +1,8 @@
 <?php
 
+use App\Http\Controllers\AdminController;
 use Illuminate\Support\Facades\Route;
-
+use app\Models\Mahasiswa;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -37,7 +38,10 @@ Route::prefix('mahasiswa')->name('mahasiswa.')->group(function () {
 //
 Route::prefix('admin')->name('admin.')->group(function () {
     Route::view('/dashboard', 'admin.dashboard')->name('dashboard');
-    Route::view('/manage-users', 'admin.manage_users')->name('users'); 
+    
+    Route::get('/manage-users', [AdminController::class, 'index'])->name('users');
+    Route::get('/manage-user/{id}', [AdminController::class, 'detail'])->name('user.detail');
+
     
     // --- Mengganti nama rute agar lebih jelas ---
     Route::view('/konfirmasi_pendaftaran', 'admin.konfirmasi_pendaftaran')->name('konfirmasi');

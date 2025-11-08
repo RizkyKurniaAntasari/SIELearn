@@ -13,35 +13,37 @@
         <table class="min-w-full divide-y divide-gray-200">
             <thead class="bg-gray-50">
                 <tr>
-                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">NPM [cite: 181]</th>
-                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Nama [cite: 182]</th>
-                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Email [cite: 183]</th>
-                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Angkatan [cite: 185]</th>
+                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">ID </th>
+                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Nama </th>
+                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Email </th>
                     <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Aksi</th>
+                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Detail </th>
                 </tr>
             </thead>
             <tbody class="bg-white divide-y divide-gray-200">
-                <tr>
-                    <td class="px-6 py-4 whitespace-nowrap">2317051003</td>
-                    <td class="px-6 py-4 whitespace-nowrap">Aulia Dwi Husnawati [cite: 12]</td>
-                    <td class="px-6 py-4 whitespace-nowrap">aulia@mail.com</td>
-                    <td class="px-6 py-4 whitespace-nowrap">2023</td>
-                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
-                        <a href="#" class="text-indigo-600 hover:text-indigo-900">Edit</a>
-                        <a href="#" class="text-red-600 hover:text-red-900 ml-4">Hapus</a>
-                    </td>
-                </tr>
-                 <tr>
-                    <td class="px-6 py-4 whitespace-nowrap">2317051088</td>
-                    <td class="px-6 py-4 whitespace-nowrap">Wiranti Oktaviani Tanwin [cite: 12]</td>
-                    <td class="px-6 py-4 whitespace-nowrap">wiranti@mail.com</td>
-                    <td class="px-6 py-4 whitespace-nowrap">2023</td>
-                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
-                        <a href="#" class="text-indigo-600 hover:text-indigo-900">Edit</a>
-                        <a href="#" class="text-red-600 hover:text-red-900 ml-4">Hapus</a>
-                    </td>
-                </tr>
-                </tbody>
+                @foreach ($users as $user)
+                    <tr>
+                        <td class="px-6 py-4 whitespace-nowrap">{{ $user->id_mahasiswa }}</td>
+                        <td class="px-6 py-4 whitespace-nowrap">{{ $user->nama }}</td>
+                        <td class="px-6 py-4 whitespace-nowrap">{{ $user->email }}</td>
+                        <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
+                            <a href="#" class="text-indigo-600 hover:text-indigo-900">Edit</a>
+                            <a href="#" class="text-red-600 hover:text-red-900 ml-4">Hapus</a>
+                        </td>
+                        <td class="px-6 py-4 whitespace-nowrap text-center">
+                            <a href="{{ route('admin.user.detail', $user->id_mahasiswa) }}"
+                                class="inline-flex items-center justify-center w-8 h-8 rounded-full bg-blue-100 text-blue-600 hover:bg-blue-200 transition">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
+                                    stroke="currentColor" class="w-5 h-5">
+                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                        d="M13 16h-1v-4h-1m1-4h.01M12 2a10 10 0 100 20 10 10 0 000-20z" />
+                                </svg>
+                            </a>
+                        </td>
+                    </tr>
+                @endforeach
+            </tbody>
+
         </table>
     </div>
 @endsection
