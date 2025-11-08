@@ -2,12 +2,12 @@
 
 @section('content')
 <div class="flex h-screen bg-gray-200">
-    <div class="w-64 bg-gray-800 text-white p-4 flex flex-col">
+    <div class="w-64 bg-primary text-white p-4 flex flex-col">
         <h2 class="text-2xl font-bold mb-4">SIELearn (Mahasiswa)</h2>
 
         <div class="mb-2">
-            <label for="kelas_switcher" class="block text-sm font-medium text-gray-400 mb-1">Kelas Aktif:</label>
-            <select id="kelas_switcher" name="kelas_switcher" class="w-full px-3 py-2 bg-gray-700 text-white border border-gray-600 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500">
+            <label for="kelas_switcher" class="block text-sm font-medium text-white mb-1">Kelas Aktif:</label>
+            <select id="kelas_switcher" name="kelas_switcher" class="w-full px-3 py-2 bg-secondary text-white border border-border_default rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500">
                 <option value="1">Pemrograman Web Lanjut (A)</option>
                 <option value="2">Basis Data (B)</option>
             </select>
@@ -21,14 +21,14 @@
         </div> --}}
 
         <nav class="flex-1 space-y-1">
-            <a href="{{ route('mahasiswa.dashboard') }}" class="block py-2 px-4 rounded hover:bg-gray-700">Dashboard</a>
-            <a href="{{ route('mahasiswa.materi') }}" class="block py-2 px-4 rounded hover:bg-gray-700">Materi</a>
-            <a href="{{ route('mahasiswa.tugas') }}" class="block py-2 px-4 rounded hover:bg-gray-700">Tugas</a>
-            <a href="{{ route('mahasiswa.absensi') }}" class="block py-2 px-4 rounded hover:bg-gray-700">Absensi</a>
-            <a href="{{ route('mahasiswa.forum') }}" class="block py-2 px-4 rounded hover:bg-gray-700">Forum</a>
+            <a href="{{ route('mahasiswa.dashboard') }}" class="block py-2 px-4 rounded hover:bg-primary_hover">Dashboard</a>
+            <a href="{{ route('mahasiswa.materi') }}" class="block py-2 px-4 rounded hover:bg-primary_hover">Materi</a>
+            <a href="{{ route('mahasiswa.tugas') }}" class="block py-2 px-4 rounded hover:bg-primary_hover">Tugas</a>
+            <a href="{{ route('mahasiswa.absensi') }}" class="block py-2 px-4 rounded hover:bg-primary_hover">Absensi</a>
+            <a href="{{ route('mahasiswa.forum') }}" class="block py-2 px-4 rounded hover:bg-primary_hover">Forum</a>
         </nav>
         
-        <div class="mt-auto"> <div class="border-t border-gray-700 pt-4">
+        <div class="mt-auto"> <div class="pt-4">
                 <a href="{{ route('mahasiswa.cari_kelas') }}" class="block text-center w-full py-2 px-4 rounded bg-green-600 hover:bg-green-700 font-semibold">
                     + Cari & Daftar Kelas Baru
                 </a>

@@ -21,7 +21,7 @@ Route::prefix('mahasiswa')->name('mahasiswa.')->group(function () {
     Route::view('/dashboard', 'mahasiswa.dashboard')->name('dashboard');
     
     // --- RUTE BARU UNTUK MELIHAT/MENGAJUKAN KELAS ---
-    Route::view('/cari-kelas', 'mahasiswa.cari_kelas')->name('cari_kelas');
+    Route::view('/cari_kelas', 'mahasiswa.cari_kelas')->name('cari_kelas');
     // --------------------------------------------------
 
     Route::view('/materi', 'mahasiswa.materi')->name('materi'); 
@@ -40,10 +40,12 @@ Route::prefix('admin')->name('admin.')->group(function () {
     Route::view('/manage-users', 'admin.manage_users')->name('users'); 
     
     // --- Mengganti nama rute agar lebih jelas ---
-    Route::view('/konfirmasi-pendaftaran', 'admin.konfirmasi_pendaftaran')->name('konfirmasi');
+    Route::view('/konfirmasi_pendaftaran', 'admin.konfirmasi_pendaftaran')->name('konfirmasi');
     // ---------------------------------------------
     
     Route::view('/manage-akademik', 'admin.manage_akademik')->name('akademik'); 
+    Route::view('/manage-pembayaran', 'admin.manage_pembayaran')->name('pembayaran'); 
+    
     Route::view('/laporan', 'admin.laporan')->name('laporan'); 
 });
 

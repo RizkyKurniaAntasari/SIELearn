@@ -11,8 +11,8 @@
         </div>
 
         <nav class="space-y-3 w-full text-center">
-            <a href="#" class="block py-2 hover:bg-primary_gradation rounded-md mx-4 transition">Dashboard</a>
-            <a href="#" class="block py-2 hover:bg-primary_gradation rounded-md mx-4 transition">Kelas</a>
+            <a href="#" class="block py-2 hover:bg-primary_hover rounded-md mx-4 transition">Dashboard</a>
+            <a href="#" class="block py-2 hover:bg-primary_hover rounded-md mx-4 transition">Kelas</a>
         </nav>
     </aside>
 
@@ -31,7 +31,7 @@
 
             <div class="space-x-3">
                 <a href="{{ route('login') }}" class="px-4 py-2 border border-primary text-primary rounded-lg hover:bg-primary hover:text-white transition">Masuk</a>
-                <a href="{{ route('register') }}" class="px-4 py-2 bg-primary text-white rounded-lg hover:bg-primary_gradation transition">Daftar</a>
+                <a href="{{ route('register') }}" class="px-4 py-2 bg-primary text-white rounded-lg hover:bg-primary_active transition">Daftar</a>
             </div>
         </header>
 
@@ -40,7 +40,7 @@
             <div class="max-w-xl space-y-4">
                 <h1 class="text-4xl font-extrabold text-gray-900 leading-snug">Belajar Makin Seru!!</h1>
                 <p class="text-gray-600">Langkahmu di sini baru permulaan. Terus eksplorasi minat, praktikkan ilmumu, dan wujudkan inspirasimu di dunia digital.</p>
-                <a href="#" class="inline-block px-6 py-3 bg-primary text-white font-semibold rounded-lg hover:bg-primary_gradation transition">Cek Kelas</a>
+                <a href="#" class="inline-block px-6 py-3 bg-primary text-white font-semibold rounded-lg hover:bg-primary_active transition">Cek Kelas</a>
             </div>
 
             <div class="mt-8 md:mt-0 md:ml-8">

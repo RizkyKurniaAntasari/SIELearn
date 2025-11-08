@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="bg-gradient-to-b from-primary to-primary_gradation flex items-center justify-center min-h-screen">
+<div class="bg-gradient-to-b from-primary to-primary_active flex items-center justify-center min-h-screen">
     <div class="w-full max-w-md p-8 space-y-6 bg-white rounded-2xl shadow-xl">
         <h2 class="text-3xl font-bold text-center text-primary">Masuk</h2>
 
@@ -33,14 +33,14 @@
 
             <!-- Tombol Login -->
             <button type="submit"
-                class="w-full py-2 font-semibold text-white rounded-lg bg-primary hover:bg-primary_gradation focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary">
+                class="w-full py-2 font-semibold text-white rounded-lg bg-primary hover:bg-primary_active focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary">
                 Masuk
             </button>
         </form>
 
         <p class="text-sm text-center text-gray-600">
             Belum punya akun?
-            <a href="{{ route('register') }}" class="font-medium text-primary hover:text-primary_gradation">
+            <a href="{{ route('register') }}" class="font-medium text-primary hover:text-primary_active">
                 Daftar sekarang
             </a>
         </p>
