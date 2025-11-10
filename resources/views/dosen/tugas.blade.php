@@ -26,7 +26,7 @@
                     <td class="px-6 py-4 whitespace-nowrap text-red-600">30 Oktober 2025</td>
                     <td class="px-6 py-4 whitespace-nowrap">35 / 40</td>
                     <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
-                        <a href="#" class="text-blue-600 hover:text-blue-900">Lihat Submission</a>
+                        <a href="{{ route('dosen.tugas_submission') }}" class="text-blue-600 hover:text-blue-900">Lihat Submission</a>
                         <a href="#" class="text-indigo-600 hover:text-indigo-900 ml-4">Edit</a>
                         <a href="#" class="text-red-600 hover:text-red-900 ml-4">Hapus</a>
                     </td>

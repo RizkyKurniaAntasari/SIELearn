@@ -9,14 +9,15 @@ return new class extends Migration
     /**
      * Run the migrations.
      */
-    public function up()
+    public function up(): void
     {
-        Schema::create('mahasiswa', function (Blueprint $table) {
-            $table->id('id_mahasiswa');
+        Schema::create('users', function (Blueprint $table) {
+            $table->id('id_users'); // bisa dosen bisa non-dosen
+            $table->enum('role', ['admin', 'dosen', 'mahasiswa'])->default('mahasiswa');
+            $table->string('nim')->unique()->nullable();
             $table->string('nama');
             $table->string('email')->unique();
             $table->string('password');
-            $table->foreign('id_role')->references('id_role')->on('role_users')->onDelete('cascade');
             $table->timestamps();
         });
     }
@@ -26,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('mahasiswa');
+        Schema::dropIfExists('users');
     }
 };
