@@ -7,10 +7,10 @@
     <div class="flex justify-between items-center">
         <h1 class="text-3xl font-bold text-purple-700">Manajemen Absensi</h1>
 
-        <button
-            class="px-4 py-2 bg-green-600 text-white font-semibold rounded-xl shadow-md hover:bg-purple-700 transition-all duration-200">
-            Buka Sesi Absensi Baru
-        </button>
+    <a href="{{ route('dosen.absensi.create') }}"
+        class="px-4 py-2 bg-green-600 text-white font-semibold rounded-xl shadow-md hover:bg-purple-700 transition-all duration-200">
+        Buka Sesi Absensi Baru
+    </a>
     </div>
 
     {{-- Card --}}

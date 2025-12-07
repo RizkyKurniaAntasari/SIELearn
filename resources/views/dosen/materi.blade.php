@@ -6,10 +6,11 @@
     {{-- Header --}}
     <div class="flex justify-between items-center">
         <h1 class="text-3xl font-bold text-purple-700">Manajemen Materi</h1>
-        <button
-            class="px-4 py-2 bg-green-600 text-white font-semibold rounded-xl shadow-md hover:bg-purple-700 transition-all duration-200">
-            + Unggah Materi Baru
-        </button>
+       <a href="{{ route('dosen.materi.create') }}"
+    class="px-4 py-2 bg-green-600 text-white font-semibold rounded-xl shadow-md hover:bg-purple-700 transition-all duration-200">
+    + Unggah Materi Baru
+</a>
+
     </div>
 
     {{-- Table --}}
