@@ -5,7 +5,7 @@
     <div class="w-full max-w-md p-8 space-y-6 bg-white rounded-2xl shadow-xl">
         <h2 class="text-3xl font-bold text-center text-primary">Daftar</h2>
 
-        <form class="space-y-5" method="POST" action="{{ route('register') }}">
+        <form id="register-form" class="space-y-5" method="POST" action="{{ route('register') }}">
             @csrf
 
             <!-- Nama Lengkap -->
@@ -47,4 +47,30 @@
         </p>
     </div>
 </div>
+
+<!-- Script AJAX untuk dummy POST -->
+<script>
+document.getElementById('register-form').addEventListener('submit', async function(e) {
+    e.preventDefault(); // cegah reload halaman
+    const formData = new FormData(this);
+
+    try {
+        const response = await fetch(this.action, {
+            method: 'POST',
+            body: formData,
+            headers: {
+                'X-Requested-With': 'XMLHttpRequest'
+            }
+        });
+
+        const data = await response.json();
+        alert(data.message); // tampilkan "Register dummy berhasil!"
+        this.reset(); // reset form
+
+    } catch (err) {
+        alert('Terjadi kesalahan. Silakan coba lagi.');
+        console.error(err);
+    }
+});
+</script>
 @endsection

@@ -1,38 +1,126 @@
 @extends('layouts.mahasiswa_app')
 
 @section('main-content')
-    <h1 class="text-2xl font-semibold mb-4">Materi Perkuliahan</h1>
+    <div class="flex flex-col md:flex-row justify-between items-end mb-6 gap-4">
+        <div>
+            <p class="text-xs font-semibold text-gray-500 mb-1 uppercase tracking-wider">Materi Perkuliahan</p>
+            <h1 class="text-3xl font-bold text-gray-800">Pemrograman Web Lanjut</h1>
+        </div>
 
-    <div class="mb-4">
-        <label for="matakuliah" class="block text-sm font-medium text-gray-700">Pilih Mata Kuliah:</label>
-        <select id="matakuliah" name="matakuliah" class="mt-1 block w-full max-w-xs pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm rounded-md">
-            <option>Pemrograman Web Lanjut</option>
-            <option>Struktur Data</option>
-            <option>Basis Data</option>
-        </select>
+        <div class="relative w-full md:w-72">
+            <span class="absolute inset-y-0 left-0 flex items-center pl-3 text-gray-400">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                </svg>
+            </span>
+            <input type="text" placeholder="Cari judul materi..." class="w-full pl-10 pr-4 py-2.5 bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:bg-white focus:ring-2 focus:ring-blue-500 focus:border-transparent transition shadow-sm text-sm">
+        </div>
     </div>
 
-    <div class="space-y-4">
-        <div class="bg-white p-6 rounded-lg shadow-md">
-            <h3 class="font-semibold text-lg mb-2">Modul 1: ERD dan Migrations</h3>
-            <p class="text-gray-600 mb-3">Pengenalan Entity Relationship Diagram dan implementasinya menggunakan Laravel Migrations.</p>
-            <a href="#" class="inline-flex items-center px-4 py-2 bg-blue-600 text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 transition duration-300">
-                <svg class="w-5 h-5 mr-2" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75V16.5M16.5 12 12 16.5m0 0L7.5 12m4.5 4.5V3" />
-                </svg>
-                Unduh Materi (PDF)
-            </a>
+    <div class="flex flex-wrap items-center gap-3 mb-8 border-b border-gray-100 pb-4">
+        <button class="px-5 py-2 rounded-full bg-blue-600 text-white text-sm font-semibold shadow-md shadow-blue-200 transition transform hover:scale-105">
+            Semua
+        </button>
+        <button class="px-5 py-2 rounded-full bg-white text-gray-600 border border-gray-200 text-sm font-medium hover:bg-gray-50 hover:border-gray-300 transition">
+            Modul PDF
+        </button>
+        <button class="px-5 py-2 rounded-full bg-white text-gray-600 border border-gray-200 text-sm font-medium hover:bg-gray-50 hover:border-gray-300 transition">
+            Video
+        </button>
+        <button class="px-5 py-2 rounded-full bg-white text-gray-600 border border-gray-200 text-sm font-medium hover:bg-gray-50 hover:border-gray-300 transition">
+            Slide PPT
+        </button>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+        <div class="bg-white border border-gray-200 rounded-2xl overflow-hidden shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col h-full group">
+            <div class="p-4 flex items-center gap-3 border-b border-gray-50">
+                <div class="h-9 w-9 rounded-full bg-indigo-100 text-indigo-600 flex items-center justify-center font-bold text-sm">
+                    RK
+                </div>
+                <div>
+                    <h4 class="text-xs font-bold text-gray-700">Rizky Kurnia</h4>
+                    <p class="text-[10px] text-gray-400 uppercase tracking-wide">Dosen Pengampu</p>
+                </div>
+                <span class="ml-auto bg-red-100 text-red-600 text-[10px] font-bold px-2 py-1 rounded-md">PDF</span>
+            </div>
+
+            <div class="h-44 bg-gray-100 relative overflow-hidden group">
+                <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" 
+                     alt="Coding" 
+                     class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 opacity-90 group-hover:opacity-100">
+                <div class="absolute inset-0 bg-gradient-to-t from-gray-900/60 to-transparent"></div>
+                <div class="absolute bottom-3 left-4">
+                    <p class="text-white text-xs font-medium bg-black/30 backdrop-blur-sm px-2 py-1 rounded inline-block mb-1">Pertemuan 1</p>
+                    <p class="text-white font-bold text-lg leading-tight shadow-sm">ERD & Migrations</p>
+                </div>
+            </div>
+
+            <div class="p-5 flex-1 flex flex-col">
+                <p class="text-gray-500 text-sm line-clamp-3 mb-4 leading-relaxed">
+                    Pengenalan konsep Entity Relationship Diagram (ERD) untuk perancangan database dan implementasi skema menggunakan fitur Migrations pada Laravel.
+                </p>
+                
+                <div class="mt-auto pt-4 border-t border-gray-100 flex justify-between items-center">
+                   <div class="flex items-center text-gray-400 text-xs font-medium">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                        20 Okt 2025
+                   </div>
+                   <a href="#" class="inline-flex items-center justify-center w-8 h-8 rounded-full bg-blue-50 text-blue-600 hover:bg-blue-600 hover:text-white transition-colors duration-300">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+                        </svg>
+                   </a>
+                </div>
+            </div>
         </div>
-        
-        <div class="bg-white p-6 rounded-lg shadow-md">
-            <h3 class="font-semibold text-lg mb-2">Modul 2: Blade Templating</h3>
-            <p class="text-gray-600 mb-3">Mempelajari cara kerja Blade, layout, dan component di Laravel.</p>
-            <a href="#" class="inline-flex items-center px-4 py-2 bg-blue-600 text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 transition duration-300">
-                <svg class="w-5 h-5 mr-2" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75V16.5M16.5 12 12 16.5m0 0L7.5 12m4.5 4.5V3" />
-                </svg>
-                Unduh Materi (PPT)
-            </a>
+
+        <div class="bg-white border border-gray-200 rounded-2xl overflow-hidden shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col h-full group">
+            <div class="p-4 flex items-center gap-3 border-b border-gray-50">
+                <div class="h-9 w-9 rounded-full bg-indigo-100 text-indigo-600 flex items-center justify-center font-bold text-sm">
+                    RK
+                </div>
+                <div>
+                    <h4 class="text-xs font-bold text-gray-700">Rizky Kurnia</h4>
+                    <p class="text-[10px] text-gray-400 uppercase tracking-wide">Dosen Pengampu</p>
+                </div>
+                <span class="ml-auto bg-orange-100 text-orange-600 text-[10px] font-bold px-2 py-1 rounded-md">PPT</span>
+            </div>
+
+            <div class="h-44 bg-gray-100 relative overflow-hidden group">
+                <img src="https://images.unsplash.com/photo-1587620962725-abab7fe55159?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" 
+                     alt="Coding" 
+                     class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 opacity-90 group-hover:opacity-100">
+                <div class="absolute inset-0 bg-gradient-to-t from-gray-900/60 to-transparent"></div>
+                <div class="absolute bottom-3 left-4">
+                    <p class="text-white text-xs font-medium bg-black/30 backdrop-blur-sm px-2 py-1 rounded inline-block mb-1">Pertemuan 2</p>
+                    <p class="text-white font-bold text-lg leading-tight shadow-sm">Blade Templating</p>
+                </div>
+            </div>
+
+            <div class="p-5 flex-1 flex flex-col">
+                <p class="text-gray-500 text-sm line-clamp-3 mb-4 leading-relaxed">
+                    Mempelajari cara kerja Blade Engine, pewarisan layout (extends), section, dan pembuatan component reusable di Laravel.
+                </p>
+                
+                <div class="mt-auto pt-4 border-t border-gray-100 flex justify-between items-center">
+                   <div class="flex items-center text-gray-400 text-xs font-medium">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                        27 Okt 2025
+                   </div>
+                   <a href="#" class="inline-flex items-center justify-center w-8 h-8 rounded-full bg-blue-50 text-blue-600 hover:bg-blue-600 hover:text-white transition-colors duration-300">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+                        </svg>
+                   </a>
+                </div>
+            </div>
         </div>
+
     </div>
 @endsection
