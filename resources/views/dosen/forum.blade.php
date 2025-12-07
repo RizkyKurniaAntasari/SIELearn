@@ -6,7 +6,7 @@
     <p class="mb-4 text-gray-700">Kelas: <strong>Pemrograman Web Lanjut</strong></p>
 
     <div class="bg-white/60 backdrop-blur-xl border border-pink-200 shadow-xl rounded-2xl overflow-hidden">
-        <div class="p-6 space-y-4 h-96 overflow-y-auto bg-gradient-to-b from-pink-50 to-yellow-50">            
+        <div class="p-6 space-y-4 h-96 overflow-y-auto bg-white">            
             <!-- Chat bubble kanan (Dosen) -->
             <div class="flex justify-end">
                 <div class="text-right max-w-md">
