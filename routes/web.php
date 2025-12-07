@@ -56,11 +56,14 @@ Route::prefix('admin')->name('admin.')->group(function () {
 // --- GRUP ROUTE DOSEN ---
 // [cite: 58]
 Route::prefix('dosen')->name('dosen.')->group(function () {
+    Route::view('/materi/create', 'dosen.materi_create')->name('materi.create');
     Route::view('/dashboard', 'dosen.dashboard')->name('dashboard');
-    Route::view('/materi', 'dosen.materi')->name('materi'); 
-    Route::view('/tugas', 'dosen.tugas')->name('tugas'); 
-    Route::view('/tugas/submission', 'dosen.tugas_submission')->name('tugas_submission'); 
-    Route::view('/absensi', 'dosen.absensi')->name('absensi'); 
-    Route::view('/laporan', 'dosen.laporan')->name('laporan'); 
-    Route::view('/forum', 'dosen.forum')->name('forum');       
+    Route::view('/materi', 'dosen.materi')->name('materi'); // 
+    Route::view('/tugas', 'dosen.tugas')->name('tugas'); // [cite: 66]
+    Route::view('/tugas/create', 'dosen.tugas_create')->name('tugas.create');
+    Route::view('/absensi', 'dosen.absensi')->name('absensi'); // [cite: 70]
+    Route::view('/laporan', 'dosen.laporan')->name('laporan'); // [cite: 77]
+    Route::view('/forum', 'dosen.forum')->name('forum'); // [cite: 73]
+    Route::view('/absensi/create', 'dosen.absensi_create')->name('absensi.create');
+    
 });
