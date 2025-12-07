@@ -3,7 +3,7 @@
 @section('main-content')
     <div class="flex flex-col md:flex-row justify-between items-end mb-6 gap-4">
         <div>
-            <p class="text-xs font-semibold text-gray-500 mb-1 uppercase tracking-wider">Materi Perkuliahan</p>
+            <p class="text-xs font-semibold text-purple-600 mb-1 uppercase tracking-wider">Materi Perkuliahan</p>
             <h1 class="text-3xl font-bold text-gray-800">Pemrograman Web Lanjut</h1>
         </div>
 
@@ -13,21 +13,21 @@
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
                 </svg>
             </span>
-            <input type="text" placeholder="Cari judul materi..." class="w-full pl-10 pr-4 py-2.5 bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:bg-white focus:ring-2 focus:ring-blue-500 focus:border-transparent transition shadow-sm text-sm">
+            <input type="text" placeholder="Cari judul materi..." class="w-full pl-10 pr-4 py-2.5 bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:bg-white focus:ring-2 focus:ring-purple-500 focus:border-transparent transition shadow-sm text-sm">
         </div>
     </div>
 
     <div class="flex flex-wrap items-center gap-3 mb-8 border-b border-gray-100 pb-4">
-        <button class="px-5 py-2 rounded-full bg-blue-600 text-white text-sm font-semibold shadow-md shadow-blue-200 transition transform hover:scale-105">
+        <button class="px-5 py-2 rounded-full bg-purple-600 text-white text-sm font-semibold shadow-md shadow-purple-200 transition transform hover:scale-105">
             Semua
         </button>
-        <button class="px-5 py-2 rounded-full bg-white text-gray-600 border border-gray-200 text-sm font-medium hover:bg-gray-50 hover:border-gray-300 transition">
+        <button class="px-5 py-2 rounded-full bg-white text-gray-600 border border-gray-200 text-sm font-medium hover:bg-gray-50 hover:border-purple-300 hover:text-purple-600 transition">
             Modul PDF
         </button>
-        <button class="px-5 py-2 rounded-full bg-white text-gray-600 border border-gray-200 text-sm font-medium hover:bg-gray-50 hover:border-gray-300 transition">
+        <button class="px-5 py-2 rounded-full bg-white text-gray-600 border border-gray-200 text-sm font-medium hover:bg-gray-50 hover:border-purple-300 hover:text-purple-600 transition">
             Video
         </button>
-        <button class="px-5 py-2 rounded-full bg-white text-gray-600 border border-gray-200 text-sm font-medium hover:bg-gray-50 hover:border-gray-300 transition">
+        <button class="px-5 py-2 rounded-full bg-white text-gray-600 border border-gray-200 text-sm font-medium hover:bg-gray-50 hover:border-purple-300 hover:text-purple-600 transition">
             Slide PPT
         </button>
     </div>
@@ -36,7 +36,7 @@
 
         <div class="bg-white border border-gray-200 rounded-2xl overflow-hidden shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col h-full group">
             <div class="p-4 flex items-center gap-3 border-b border-gray-50">
-                <div class="h-9 w-9 rounded-full bg-indigo-100 text-indigo-600 flex items-center justify-center font-bold text-sm">
+                <div class="h-9 w-9 rounded-full bg-purple-100 text-purple-600 flex items-center justify-center font-bold text-sm">
                     RK
                 </div>
                 <div>
@@ -69,7 +69,7 @@
                         </svg>
                         20 Okt 2025
                    </div>
-                   <a href="#" class="inline-flex items-center justify-center w-8 h-8 rounded-full bg-blue-50 text-blue-600 hover:bg-blue-600 hover:text-white transition-colors duration-300">
+                   <a href="#" class="inline-flex items-center justify-center w-8 h-8 rounded-full bg-purple-50 text-purple-600 hover:bg-purple-600 hover:text-white transition-colors duration-300">
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
                         </svg>
@@ -80,7 +80,7 @@
 
         <div class="bg-white border border-gray-200 rounded-2xl overflow-hidden shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col h-full group">
             <div class="p-4 flex items-center gap-3 border-b border-gray-50">
-                <div class="h-9 w-9 rounded-full bg-indigo-100 text-indigo-600 flex items-center justify-center font-bold text-sm">
+                <div class="h-9 w-9 rounded-full bg-purple-100 text-purple-600 flex items-center justify-center font-bold text-sm">
                     RK
                 </div>
                 <div>
@@ -113,7 +113,7 @@
                         </svg>
                         27 Okt 2025
                    </div>
-                   <a href="#" class="inline-flex items-center justify-center w-8 h-8 rounded-full bg-blue-50 text-blue-600 hover:bg-blue-600 hover:text-white transition-colors duration-300">
+                   <a href="#" class="inline-flex items-center justify-center w-8 h-8 rounded-full bg-purple-50 text-purple-600 hover:bg-purple-600 hover:text-white transition-colors duration-300">
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
                         </svg>
