@@ -7,10 +7,10 @@
     <div class="flex justify-between items-center">
         <h1 class="text-3xl font-bold text-purple-700">Manajemen Tugas & Evaluasi</h1>
 
-        <button
+        <a href="{{ route('dosen.tugas.create') }}"
             class="px-4 py-2 bg-green-600 text-white font-semibold rounded-xl shadow-md hover:bg-purple-700 transition-all duration-200">
             + Buat Tugas Baru
-        </button>
+        </a>
     </div>
 
     {{-- Table --}}

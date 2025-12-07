@@ -60,6 +60,7 @@ Route::prefix('dosen')->name('dosen.')->group(function () {
     Route::view('/dashboard', 'dosen.dashboard')->name('dashboard');
     Route::view('/materi', 'dosen.materi')->name('materi'); // 
     Route::view('/tugas', 'dosen.tugas')->name('tugas'); // [cite: 66]
+    Route::view('/tugas/create', 'dosen.tugas_create')->name('tugas.create');
     Route::view('/absensi', 'dosen.absensi')->name('absensi'); // [cite: 70]
     Route::view('/laporan', 'dosen.laporan')->name('laporan'); // [cite: 77]
     Route::view('/forum', 'dosen.forum')->name('forum'); // [cite: 73]
