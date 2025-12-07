@@ -25,11 +25,12 @@ Route::prefix('mahasiswa')->name('mahasiswa.')->group(function () {
      Route::view('/cari_kelas', 'mahasiswa.cari_kelas')->name('cari_kelas');
      // --------------------------------------------------
 
-     Route::view('/materi', 'mahasiswa.materi')->name('materi'); 
-     Route::view('/tugas', 'mahasiswa.tugas')->name('tugas'); 
+     Route::view('/materi', 'mahasiswa.materi')->name('materi');
+     Route::view('/materi/detail', 'mahasiswa.detail_materi')->name('materi.detail');
+     Route::view('/tugas', 'mahasiswa.tugas')->name('tugas');
+     Route::view('/tugas/detail', 'mahasiswa.detail_tugas')->name('tugas.detail'); 
      Route::view('/absensi', 'mahasiswa.absensi')->name('absensi'); 
      Route::view('/forum', 'mahasiswa.forum')->name('forum'); 
-
      Route::view('/profile', 'mahasiswa.profile')->name('profile'); // untuk profile
 });
 
@@ -58,4 +59,5 @@ Route::prefix('dosen')->name('dosen.')->group(function () {
      Route::view('/absensi', 'dosen.absensi')->name('absensi'); 
      Route::view('/laporan', 'dosen.laporan')->name('laporan'); 
      Route::view('/forum', 'dosen.forum')->name('forum'); 
+
 });
