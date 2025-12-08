@@ -9,7 +9,7 @@ class Tugas extends Model
 {
     use HasFactory;
 
-    protected $table = 'tugas'; // pastikan nama tabel sama dengan database
+    protected $table = 'tugas'; 
 
     protected $fillable = [
         'judul',
@@ -26,21 +26,21 @@ class Tugas extends Model
     |--------------------------------------------------------------------------
     */
 
-    // Tugas dimiliki oleh satu kelas
+    // Tugas milik satu kelas
     public function kelas()
     {
-        return $this->belongsTo(Kelas::class);
+        return $this->belongsTo(Kelas::class, 'kelas_id');
     }
 
-    // Tugas diberikan oleh satu dosen
+    // Tugas dibuat oleh dosen
     public function dosen()
     {
-        return $this->belongsTo(Dosen::class);
+        return $this->belongsTo(Dosen::class, 'dosen_id');
     }
 
-    // Relasi ke pengumpulan tugas (jika nanti kamu pakai)
+    // Tugas memiliki banyak submission (pengumpulan)
     public function submissions()
     {
-        return $this->hasMany(TugasSubmit::class);
+        return $this->hasMany(TugasSubmit::class, 'tugas_id');
     }
 }
