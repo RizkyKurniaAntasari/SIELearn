@@ -61,11 +61,6 @@ Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 
 
 
-
-
-
-
-
 // DASHBOARD PER ROLE
 Route::middleware(['role:admin'])->group(function () {
     Route::get('/admin/dashboard', fn() => "Admin Dashboard")
@@ -77,14 +72,35 @@ Route::middleware(['role:dosen'])->group(function () {
         ->name('dosen.dashboard');
 });
 
-Route::middleware(['role:mahasiswa'])->group(function () {
-    
-    // UBAH BAGIAN INI
-    Route::get('/mahasiswa/dashboard', function () {
-        return view('mahasiswa.dashboard'); // Sesuaikan dengan nama file/folder blade kamu
-    })->name('mahasiswa.dashboard');
+Route::middleware(['role:mahasiswa'])
+    ->prefix('mahasiswa')
+    ->name('mahasiswa.')
+    ->group(function () {
 
-});
+        // DASHBOARD
+        Route::view('/dashboard', 'mahasiswa.dashboard')->name('dashboard');
+
+        // CARI KELAS
+        Route::view('/cari-kelas', 'mahasiswa.cari_kelas')->name('cari_kelas');
+
+        // MATERI
+        Route::view('/materi', 'mahasiswa.materi')->name('materi');
+        Route::view('/materi/detail', 'mahasiswa.detail_materi')->name('materi.detail');
+
+        // TUGAS
+        Route::view('/tugas', 'mahasiswa.tugas')->name('tugas');
+        Route::view('/tugas/detail', 'mahasiswa.detail_tugas')->name('tugas.detail');
+
+        // ABSENSI
+        Route::view('/absensi', 'mahasiswa.absensi')->name('absensi');
+
+        // FORUM
+        Route::view('/forum', 'mahasiswa.forum')->name('forum');
+
+        // PROFILE
+        Route::view('/profile', 'mahasiswa.profile')->name('profile');
+    });
+
 
 
 
@@ -93,46 +109,29 @@ Route::view('/', 'welcome');
 Route::view('/login', 'auth.login')->name('login');
 Route::view('/register', 'auth.register')->name('register');
 
-Route::prefix('mahasiswa')->name('mahasiswa.')->group(function () {
-    //  Route::view('/dashboard', 'mahasiswa.dashboard')->name('dashboard');
-     
-     // --- RUTE BARU UNTUK MELIHAT/MENGAJUKAN KELAS ---
-     Route::view('/cari_kelas', 'mahasiswa.cari_kelas')->name('cari_kelas');
-     // --------------------------------------------------
-
-     Route::view('/materi', 'mahasiswa.materi')->name('materi');
-     Route::view('/materi/detail', 'mahasiswa.detail_materi')->name('materi.detail');
-     Route::view('/tugas', 'mahasiswa.tugas')->name('tugas');
-     Route::view('/tugas/detail', 'mahasiswa.detail_tugas')->name('tugas.detail'); 
-     Route::view('/absensi', 'mahasiswa.absensi')->name('absensi'); 
-     Route::view('/forum', 'mahasiswa.forum')->name('forum'); 
-     Route::view('/profile', 'mahasiswa.profile')->name('profile'); // untuk profile
-});
-
 // --- GRUP ROUTE ADMIN ---
 Route::prefix('admin')->name('admin.')->group(function () {
     //  Route::view('/dashboard', 'admin.dashboard')->name('dashboard');
-     
-     Route::get('/manage-users', [AdminController::class, 'index'])->name('users');
-     Route::get('/manage-user/{id}', [AdminController::class, 'detail'])->name('user.detail');
 
-     // --- Mengganti nama rute agar lebih jelas ---
-     Route::view('/konfirmasi_pendaftaran', 'admin.konfirmasi_pendaftaran')->name('konfirmasi');
-     // ---------------------------------------------
-     
-     Route::view('/manage-akademik', 'admin.manage_akademik')->name('akademik'); 
-     Route::view('/manage-pembayaran', 'admin.manage_pembayaran')->name('pembayaran'); 
-     
-     Route::view('/laporan', 'admin.laporan')->name('laporan'); 
+    Route::get('/manage-users', [AdminController::class, 'index'])->name('users');
+    Route::get('/manage-user/{id}', [AdminController::class, 'detail'])->name('user.detail');
+
+    // --- Mengganti nama rute agar lebih jelas ---
+    Route::view('/konfirmasi_pendaftaran', 'admin.konfirmasi_pendaftaran')->name('konfirmasi');
+    // ---------------------------------------------
+
+    Route::view('/manage-akademik', 'admin.manage_akademik')->name('akademik');
+    Route::view('/manage-pembayaran', 'admin.manage_pembayaran')->name('pembayaran');
+
+    Route::view('/laporan', 'admin.laporan')->name('laporan');
 });
 
 // --- GRUP ROUTE DOSEN ---
 Route::prefix('dosen')->name('dosen.')->group(function () {
     //  Route::view('/dashboard', 'dosen.dashboard')->name('dashboard');
-     Route::view('/materi', 'dosen.materi')->name('materi'); 
-     Route::view('/tugas', 'dosen.tugas')->name('tugas'); 
-     Route::view('/absensi', 'dosen.absensi')->name('absensi'); 
-     Route::view('/laporan', 'dosen.laporan')->name('laporan'); 
-     Route::view('/forum', 'dosen.forum')->name('forum'); 
-
+    Route::view('/materi', 'dosen.materi')->name('materi');
+    Route::view('/tugas', 'dosen.tugas')->name('tugas');
+    Route::view('/absensi', 'dosen.absensi')->name('absensi');
+    Route::view('/laporan', 'dosen.laporan')->name('laporan');
+    Route::view('/forum', 'dosen.forum')->name('forum');
 });
