@@ -8,6 +8,17 @@
     "devDependencies": {
         "axios": "^1.6.4",
         "laravel-vite-plugin": "^1.0.0",
+        "tailwindcss": "^4.1.17",
         "vite": "^5.0.0"
-    }
+    },
+    "name": "elearning2",
+    "version": "1.0.0",
+    "description": "",
+    "main": "vite.config.js",
+    "directories": {
+        "test": "tests"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC"
 }
