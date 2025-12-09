@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('enrollment', function (Blueprint $table) {
             $table->id('id_enroll');
-            $table->id('id_user');
-            $table->id('id_kelas');
+            $table->unsignedBigInteger('id_user');
+            $table->unsignedBigInteger('id_kelas');
             $table->foreign('id_user')->references('id_user')->on('users')->onDelete('cascade');
             $table->foreign('id_kelas')->references('id_kelas')->on('kelas')->onDelete('cascade');
             $table->timestamps();

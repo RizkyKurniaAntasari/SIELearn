@@ -16,9 +16,9 @@ return new class extends Migration
             $table->date('tanggal');
             $table->enum('status', ['Hadir', 'Izin', 'Alfa']);
             $table->unsignedBigInteger('id_kelas');
-            $table->unsignedBigInteger('id_mahasiswa');
+            $table->unsignedBigInteger('id_user');
             $table->foreign('id_kelas')->references('id_kelas')->on('kelas')->onDelete('cascade');
-            $table->foreign('id_mahasiswa')->references('id_mahasiswa')->on('mahasiswa')->onDelete('cascade');
+            $table->foreign('id_user')->references('id_user')->on('users')->onDelete('cascade');
             $table->timestamps();
         });
     }

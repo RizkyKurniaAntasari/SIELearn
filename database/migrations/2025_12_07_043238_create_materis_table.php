@@ -12,19 +12,19 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('materis', function (Blueprint $table) {
-            $table->id();
+            $table->id('id_materis');
             $table->string('judul');
             $table->text('deskripsi')->nullable();
             $table->string('file')->nullable();
 
-            // RELASI OTOMATIS
-            $table->foreignId('kelas_id')
-                  ->constrained('kelas')
-                  ->onDelete('cascade');
+            // // RELASI OTOMATIS
+            // $table->foreignId('kelas_id')
+            //       ->constrained('kelas')
+            //       ->onDelete('cascade');
 
-            $table->foreignId('dosen_id')
-                  ->constrained('users')
-                  ->onDelete('cascade');
+            // $table->foreignId('dosen_id')
+            //       ->constrained('users')
+            //       ->onDelete('cascade');
 
             $table->timestamps();
         });

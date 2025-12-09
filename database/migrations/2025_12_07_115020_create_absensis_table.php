@@ -12,14 +12,13 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('absensis', function (Blueprint $table) {
-    $table->id();
-    $table->foreignId('mahasiswa_id')->constrained()->onDelete('cascade');
-    $table->foreignId('kelas_id')->constrained()->onDelete('cascade');
-    $table->date('tanggal');
-    $table->enum('status', ['Hadir','Izin','Sakit','Alpha']);
-    $table->timestamps();
-});
-
+            $table->id('id_absensis');
+            $table->foreignId('id_user')->constrained()->onDelete('cascade');
+            $table->foreignId('kelas_id')->constrained()->onDelete('cascade');
+            $table->date('tanggal');
+            $table->enum('status', ['Hadir', 'Izin', 'Sakit', 'Alpha']);
+            $table->timestamps();
+        });
     }
 
     /**
