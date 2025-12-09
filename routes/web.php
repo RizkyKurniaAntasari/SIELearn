@@ -24,7 +24,69 @@ use App\Http\Controllers\PendaftaranController;
 |
 | Di sinilah Anda dapat mendaftarkan rute web untuk aplikasi Anda.
 |A
+
+
+
+
 */
+// ---------------------------------------------------------------------------------------------
+use App\Http\Controllers\AuthController;
+use App\Http\Controllers\LoginController;
+use Illuminate\Support\Facades\Auth;
+
+// AUTH
+Route::get('/login', [AuthController::class, 'showLogin'])->name('login');
+Route::post('/login', [AuthController::class, 'login'])->name('login.post');
+
+Route::get('/register', [AuthController::class, 'showRegister'])->name('register');
+Route::post('/register', [AuthController::class, 'register'])->name('register.post');
+
+// Ubah kata 'post' menjadi 'get'
+// Route::post('/logout', [App\Http\Controllers\LoginController::class, 'logout'])->name('logout');
+// Atau pakai closure function seperti sebelumnya
+
+
+
+// Register
+// Route::post('/register', [AuthController::class, 'register']);
+
+// Login
+
+// Route::post('/login', [AuthController::class, 'login']);
+
+// Logout (Wajib POST)
+Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
+
+
+
+
+
+
+
+
+
+
+// DASHBOARD PER ROLE
+Route::middleware(['role:admin'])->group(function () {
+    Route::get('/admin/dashboard', fn() => "Admin Dashboard")
+        ->name('admin.dashboard');
+});
+
+Route::middleware(['role:dosen'])->group(function () {
+    Route::get('/dosen/dashboard', fn() => "Dosen Dashboard")
+        ->name('dosen.dashboard');
+});
+
+Route::middleware(['role:mahasiswa'])->group(function () {
+    
+    // UBAH BAGIAN INI
+    Route::get('/mahasiswa/dashboard', function () {
+        return view('mahasiswa.dashboard'); // Sesuaikan dengan nama file/folder blade kamu
+    })->name('mahasiswa.dashboard');
+
+});
+
+
 
 // Halaman utama (Landing Page) & Login
 Route::view('/', 'welcome');
@@ -32,7 +94,7 @@ Route::view('/login', 'auth.login')->name('login');
 Route::view('/register', 'auth.register')->name('register');
 
 Route::prefix('mahasiswa')->name('mahasiswa.')->group(function () {
-     Route::view('/dashboard', 'mahasiswa.dashboard')->name('dashboard');
+    //  Route::view('/dashboard', 'mahasiswa.dashboard')->name('dashboard');
      
      // --- RUTE BARU UNTUK MELIHAT/MENGAJUKAN KELAS ---
      Route::view('/cari_kelas', 'mahasiswa.cari_kelas')->name('cari_kelas');
@@ -49,7 +111,7 @@ Route::prefix('mahasiswa')->name('mahasiswa.')->group(function () {
 
 // --- GRUP ROUTE ADMIN ---
 Route::prefix('admin')->name('admin.')->group(function () {
-     Route::view('/dashboard', 'admin.dashboard')->name('dashboard');
+    //  Route::view('/dashboard', 'admin.dashboard')->name('dashboard');
      
      Route::get('/manage-users', [AdminController::class, 'index'])->name('users');
      Route::get('/manage-user/{id}', [AdminController::class, 'detail'])->name('user.detail');
@@ -66,7 +128,7 @@ Route::prefix('admin')->name('admin.')->group(function () {
 
 // --- GRUP ROUTE DOSEN ---
 Route::prefix('dosen')->name('dosen.')->group(function () {
-     Route::view('/dashboard', 'dosen.dashboard')->name('dashboard');
+    //  Route::view('/dashboard', 'dosen.dashboard')->name('dashboard');
      Route::view('/materi', 'dosen.materi')->name('materi'); 
      Route::view('/tugas', 'dosen.tugas')->name('tugas'); 
      Route::view('/absensi', 'dosen.absensi')->name('absensi'); 

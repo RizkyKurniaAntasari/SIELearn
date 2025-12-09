@@ -23,22 +23,30 @@
     <div class="grid grid-cols-1 md:grid-cols-4 gap-4 mb-6">
         <div class="card-stat" style="background:#1E3A8A;">
             <h4 class="text-lg">Mahasiswa</h4>
-            <p class="text-3xl font-bold">{{ $mahasiswa }}</p>
+            <p class="text-3xl font-bold">
+                {{-- {{ $mahasiswa }} --}}
+            </p>
         </div>
 
         <div class="card-stat" style="background:#059669;">
             <h4 class="text-lg">Dosen</h4>
-            <p class="text-3xl font-bold">{{ $dosen }}</p>
+            <p class="text-3xl font-bold">
+                {{-- {{ $dosen }} --}}
+            </p>
         </div>
 
         <div class="card-stat" style="background:#7C3AED;">
             <h4 class="text-lg">Kelas</h4>
-            <p class="text-3xl font-bold">{{ $kelas }}</p>
+            <p class="text-3xl font-bold">
+                {{-- {{ $kelas }} --}}
+            </p>
         </div>
 
         <div class="card-stat" style="background:#EA580C;">
             <h4 class="text-lg">Materi</h4>
-            <p class="text-3xl font-bold">{{ $materi }}</p>
+            <p class="text-3xl font-bold">
+                {{-- {{ $materi }} --}}
+            </p>
         </div>
     </div>
 

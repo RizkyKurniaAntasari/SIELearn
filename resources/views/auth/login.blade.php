@@ -5,7 +5,7 @@
     <div class="w-full max-w-md p-8 space-y-6 bg-white rounded-2xl shadow-xl">
         <h2 class="text-3xl font-bold text-center text-primary">Masuk</h2>
 
-        <form class="space-y-5" method="POST" action="{{ route('login') }}">
+        <form class="space-y-5" method="POST" action="{{ route('login.post') }}">
             @csrf
 
             <!-- Email -->
