@@ -14,52 +14,63 @@ use App\Http\Controllers\Admin\TugasController;
 use App\Http\Controllers\Admin\AbsensiController;
 use App\Http\Controllers\Admin\NilaiController;
 use App\Http\Controllers\Admin\PembayaranController;
-
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\PendaftaranController;
 
 /*
 |--------------------------------------------------------------------------
 | Halaman Welcome + Pendaftaran
 |--------------------------------------------------------------------------
+|
+| Di sinilah Anda dapat mendaftarkan rute web untuk aplikasi Anda.
+|A
 */
-Route::get('/', function () {
-    return view('welcome');
+
+// Halaman utama (Landing Page) & Login
+Route::view('/', 'welcome');
+Route::view('/login', 'auth.login')->name('login');
+Route::view('/register', 'auth.register')->name('register');
+
+Route::prefix('mahasiswa')->name('mahasiswa.')->group(function () {
+     Route::view('/dashboard', 'mahasiswa.dashboard')->name('dashboard');
+     
+     // --- RUTE BARU UNTUK MELIHAT/MENGAJUKAN KELAS ---
+     Route::view('/cari_kelas', 'mahasiswa.cari_kelas')->name('cari_kelas');
+     // --------------------------------------------------
+
+     Route::view('/materi', 'mahasiswa.materi')->name('materi');
+     Route::view('/materi/detail', 'mahasiswa.detail_materi')->name('materi.detail');
+     Route::view('/tugas', 'mahasiswa.tugas')->name('tugas');
+     Route::view('/tugas/detail', 'mahasiswa.detail_tugas')->name('tugas.detail'); 
+     Route::view('/absensi', 'mahasiswa.absensi')->name('absensi'); 
+     Route::view('/forum', 'mahasiswa.forum')->name('forum'); 
+     Route::view('/profile', 'mahasiswa.profile')->name('profile'); // untuk profile
 });
 
-Route::get('/pendaftaran', [PendaftaranController::class, 'index'])->name('pendaftaran.index');
-Route::post('/pendaftaran', [PendaftaranController::class, 'store'])->name('pendaftaran.store');
+// --- GRUP ROUTE ADMIN ---
+Route::prefix('admin')->name('admin.')->group(function () {
+     Route::view('/dashboard', 'admin.dashboard')->name('dashboard');
+     
+     Route::get('/manage-users', [AdminController::class, 'index'])->name('users');
+     Route::get('/manage-user/{id}', [AdminController::class, 'detail'])->name('user.detail');
 
-/*
-|--------------------------------------------------------------------------
-| Admin Auth
-|--------------------------------------------------------------------------
-*/
-Route::get('/admin/login', [AdminAuthController::class, 'showLogin'])->name('admin.login');
-Route::post('/admin/login', [AdminAuthController::class, 'login']);
+     // --- Mengganti nama rute agar lebih jelas ---
+     Route::view('/konfirmasi_pendaftaran', 'admin.konfirmasi_pendaftaran')->name('konfirmasi');
+     // ---------------------------------------------
+     
+     Route::view('/manage-akademik', 'admin.manage_akademik')->name('akademik'); 
+     Route::view('/manage-pembayaran', 'admin.manage_pembayaran')->name('pembayaran'); 
+     
+     Route::view('/laporan', 'admin.laporan')->name('laporan'); 
+});
 
-Route::get('/admin/register', [AdminAuthController::class, 'showRegister'])->name('admin.register');
-Route::post('/admin/register', [AdminAuthController::class, 'register']);
+// --- GRUP ROUTE DOSEN ---
+Route::prefix('dosen')->name('dosen.')->group(function () {
+     Route::view('/dashboard', 'dosen.dashboard')->name('dashboard');
+     Route::view('/materi', 'dosen.materi')->name('materi'); 
+     Route::view('/tugas', 'dosen.tugas')->name('tugas'); 
+     Route::view('/absensi', 'dosen.absensi')->name('absensi'); 
+     Route::view('/laporan', 'dosen.laporan')->name('laporan'); 
+     Route::view('/forum', 'dosen.forum')->name('forum'); 
 
-Route::post('/admin/logout', [AdminAuthController::class, 'logout'])->name('admin.logout');
-
-/*
-|--------------------------------------------------------------------------
-| Admin Routes (Protected)
-|--------------------------------------------------------------------------
-*/
-Route::middleware('adminAuth')
-    ->prefix('admin')
-    ->name('admin.')
-    ->group(function () {
-
-        Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
-
-        Route::resource('mahasiswa', MahasiswaController::class);
-        Route::resource('dosen', DosenController::class);
-        Route::resource('kelas', KelasController::class);
-        Route::resource('materi', MateriController::class);
-        Route::resource('tugas', TugasController::class);
-        Route::resource('absensi', AbsensiController::class);
-        Route::resource('nilai', NilaiController::class);
-        Route::resource('pembayaran', PembayaranController::class);
-    });
+});
